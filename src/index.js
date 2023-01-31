@@ -11,7 +11,7 @@ import './index.css';
   }
   
   class Board extends React.Component {
-
+       
     renderSquare(i) {
       return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
     }
@@ -60,7 +60,9 @@ import './index.css';
       squares[i] = this.state.xIsNext ? 'X' : 'O';
       this.setState({history: history.concat([{
                     squares: squares,
-                    }])})
+                    }]),
+                    xIsNext: !this.state.xIsNext,
+                    });
     }
 
     render() {
